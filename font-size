@@ -233,7 +233,10 @@ sub fonts_show
 {
     my ($term) = @_;
 
-    my $out = $term->resource('font');
+    my $out = "font:\n" . $term->resource('font')
+        . "\nboldFont:\n" . $term->resource('boldFont')
+        . "\nitalicFont:\n" . $term->resource('italicFont')
+        . "\nboldItalicFont:\n" . $term->resource('boldItalicFont');
     $out =~ s/\s*,\s*/\n/g;
 
     $term->{'font-size'}{'overlay'} = {
